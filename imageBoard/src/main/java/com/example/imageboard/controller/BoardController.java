@@ -45,16 +45,8 @@ public class BoardController {
             File Folder = new File(realPath);
             Folder.mkdir();
 
-//            File newFileName = new File(realPath+file.getOriginalFilename());
-//            file.transferTo(newFileName);
-            //mutipartfile->bufferedImage
-            BufferedImage bi=ImageIO.read(file.getInputStream());
-            //이미지 사이즈변경
-            bi=resizeImage(bi,30,30);
-            System.out.println("bi 성공");
-            //이미지 위치에 저장
-            ImageIO.write(bi, "jpg", new File(realPath+file.getOriginalFilename()));
-            System.out.println("위치 저장");
+            File newFileName = new File(realPath+file.getOriginalFilename());
+            file.transferTo(newFileName);
         } catch (IOException e){
             e.printStackTrace();
         }
